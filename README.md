@@ -15,7 +15,7 @@
 
 ## What is This?
 
-ConclaveSim is a simulation framework that models the papal election process using Large Language Model (LLM) agents. Each cardinal is represented by an autonomous agent powered by Claude 3.7 Sonnet, with unique backgrounds and perspectives derived from real-world data about the College of Cardinals.
+ConclaveSim is a simulation framework that models the papal election process using Large Language Model (LLM) agents. Each cardinal is represented by an autonomous agent powered by Claude 3 Sonnet (via OpenRouter), with unique backgrounds and perspectives derived from real-world data about the College of Cardinals.
 
 The simulation allows researchers and observers to explore the dynamics of papal elections by having AI agents engage in discussions and cast votes according to their simulated beliefs and priorities. The framework supports different modes of interaction including single voting rounds, multi-round elections, and discussion-based proceedings.
 
@@ -81,16 +81,24 @@ Cardinal information is sourced from:
 
 To run a simulation:
 
-1. Make sure you have AWS credentials configured for Bedrock access
-2. `uv sync` to install dependencies
-2. Choose a simulation mode:
+1. Set your OpenRouter API key as an environment variable:
+   ```bash
+   export OPENROUTER_API_KEY=your_api_key_here
    ```
+
+2. Install dependencies:
+   ```bash
+   uv sync
+   ```
+
+3. Choose a simulation mode:
+   ```bash
    uv run single_round.py    # For a single voting round
    uv run multi_round.py     # For multiple voting rounds
    uv run discussion_round.py  # For voting rounds with discussion periods
    ```
 
-3. Results are logged to the `logs/` directory
+4. Results are logged to the `logs/` directory
 
 ### Future work
 
